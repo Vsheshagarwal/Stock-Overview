@@ -6,15 +6,14 @@ import plotly.graph_objects as go
 st.set_page_config(layout="wide")
 st.title("📊 Indian Stock Overview")
 
-# Input from user
+
 symbol = st.text_input("Enter NSE stock symbol (e.g., TCS.NS)", "TCS.NS")
 
-# Load stock data
 try:
     stock = yf.Ticker(symbol)
     info = stock.info
 
-    # Stock info section
+ 
     st.header(f"📈 {info.get('longName', symbol)} Overview")
 
     col1, col2, col3 = st.columns(3)
@@ -29,7 +28,7 @@ try:
 
     st.divider()
 
-    # Historical chart
+
     st.subheader("📅 Last 6 Months Price Trend")
     hist = stock.history(period="6mo")
     if not hist.empty:
@@ -37,7 +36,6 @@ try:
     else:
         st.warning("No historical price data found.")
 
-    # Bar chart of current vs 52-week high/low
     st.subheader("📊 Price Position Compared to 52-Week Range")
     try:
         current = info['currentPrice']
