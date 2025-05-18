@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 st.set_page_config(layout="wide")
-st.title("📊 Indian Script Overview")
+st.title("📊 Indian Stock Overview")
 
 # Input from user
 symbol = st.text_input("Enter NSE stock symbol (e.g., TCS.NS)", "TCS.NS")
